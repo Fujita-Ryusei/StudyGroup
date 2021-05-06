@@ -1,10 +1,8 @@
 <?php
 require_once('func.php');
 $data = array();
-$id = filter_input(INPUT_POST,'id');
 $name = filter_input(INPUT_POST,'name');
-$sql = "SELECT * FROM `users` WHERE `id` LIKE '%$id%'";
-$sql = "SELECT * FROM `users` WHERE `name` LIKE '%$name%'";//二重検索のやり方
+$sql = "SELECT * FROM `users` WHERE `name` LIKE '%$name%'";
 $data = allList($host,$username,$passwd,$dbname,$sql);
 //var_dump($data);
 ?>
