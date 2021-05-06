@@ -4,7 +4,10 @@ $data = array();
 $name = filter_input(INPUT_POST,'name');
 $sql = "SELECT * FROM `users` WHERE `name` LIKE '%$name%'";
 $data = allList($host,$username,$passwd,$dbname,$sql);
-//var_dump($data);
+/*
+db構造
+php->users->id,name,allergy,kcal
+*/
 ?>
 <!DOCTYPE html>
 <html lang="ja">
