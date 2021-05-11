@@ -5,6 +5,7 @@ $name = filter_input(INPUT_POST,'name');
 $sql = "SELECT * FROM `users` WHERE `name` LIKE '%$name%'";
 $data = allList($host,$username,$passwd,$dbname,$sql);
 /*
+sqlインジェクション対策でプレースホルダを使用。値として処理されるため、特殊文字が無効化される。
 db構造
 php->users->id,name,allergy,kcal
 */
