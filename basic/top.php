@@ -9,6 +9,9 @@ sqlインジェクション対策でプレースホルダを使用。値とし�
 db構造
 php->users->id,name,allergy,kcal
 */
+db構造
+php->users->id,name,allergy,kcal
+*/
 ?>
 <!DOCTYPE html>
 <html lang="ja">
