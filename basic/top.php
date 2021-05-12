@@ -37,7 +37,7 @@ php->users->id,name,allergy,kcal
         document.getElementById("span1").textContent = str;
       }
     </script>
-    <table border = "1">
+    <table border = "1">//個々の機能は未実装です。、
       <tr>
         <td>アレルギー</td>
         <td>甲殻類<input type="checkbox"></td>
