@@ -2,7 +2,7 @@
 require_once('func.php');
 $data = array();
 $name = filter_input(INPUT_POST,'name');
-$sql = "SELECT * FROM `users` WHERE `name` LIKE '%$name%'";
+$sql = "SELECT * FROM `users` WHERE `name`=:name ";//ここがおかしいです
 $data = allList($host,$username,$passwd,$dbname,$sql);
 /*
 db構造
