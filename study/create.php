@@ -1,12 +1,12 @@
 <?php
     require_once('func.php');
-    $method = $_SERVER["REQUEST_METHOD"];
+    $method = $_SERVER["REQUEST_METHOD"];//POST/GET通信の判定
     $data = array();
     if($method == 'POST') {
         $TodoName = filter_input(INPUT_POST,'TodoName');//入力されたデータの読み込み
         $comment = filter_input(INPUT_POST,'comment');
         $sql = "INSERT INTO `task`(`TodoName`, `comment`) VALUES ('$TodoName','$comment')";//INSERTクエリの実行
-        $data = setDB($host,$username,$password,$dbname,$sql);//データの読み込み
+        setDB($host,$username,$password,$dbname,$sql);//データの読み込み
     }
 ?>
 <!DOCTYPE html>
