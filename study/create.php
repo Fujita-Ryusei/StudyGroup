@@ -3,9 +3,9 @@
     $method = $_SERVER["REQUEST_METHOD"];
     $data = array();
     if($method == 'POST') {
-        $TodoName = filter_input(INPUT_POST,'Todoname');//入力されたデータの読み込み
+        $TodoName = filter_input(INPUT_POST,'TodoName');//入力されたデータの読み込み
         $comment = filter_input(INPUT_POST,'comment');
-        $sql = "INSERT INTO `task`(`TodoName`, `comment`) VALUES ('$TodoName,'$comment')";//INSERTクエリの実行
+        $sql = "INSERT INTO `task`(`TodoName`, `comment`) VALUES ('$TodoName','$comment')";//INSERTクエリの実行
         $data = setDB($host,$username,$password,$dbname,$sql);//データの読み込み
     }
 ?>
