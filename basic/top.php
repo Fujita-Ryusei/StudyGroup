@@ -2,7 +2,7 @@
 require_once('func.php');
 $data = array();
 $name = filter_input(INPUT_POST,'name');
-$sql = "SELECT * FROM `users` WHERE `name` LIKE '%$name%'";
+$sql = "SELECT * FROM `users` WHERE `name`=:name ";//ここがおかしいです
 $data = allList($host,$username,$passwd,$dbname,$sql);
 /*
 sqlインジェクション対策でプレースホルダを使用。値として処理されるため、特殊文字が無効化される。
@@ -41,7 +41,7 @@ php->users->id,name,allergy,kcal
         document.getElementById("span1").textContent = str;
       }
     </script>
-    <table border = "1">
+    <table border = "1">//個々の機能は未実装です。、
       <tr>
         <td>アレルギー</td>
         <td>甲殻類<input type="checkbox"></td>
