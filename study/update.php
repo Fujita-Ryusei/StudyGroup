@@ -7,9 +7,13 @@ if($method === 'GET'){
     $id = filter_input(INPUT_GET,'id');//idデータの読み込み
     $sql ="SELECT * FROM `task` WHERE `id` = '$id'";
     $data = updDB($host,$username,$password,$dbname,$sql);//配列の取得
-    var_dump($data);
 }elseif($method === 'POST'){
     //編集内容の登録
+    $id = filter_input(INPUT_GET,'id');//データの読み込み
+    $TodoName = filter_input(INPUT_POST,'TodoName');
+    $comment = filter_input(INPUT_POST,'comment');
+    $sql = "UPDATE `task` SET `TodoName`= '$TodoName',`comment`= '$comment' WHERE `id` = $id ";
+    setDB($host,$username,$password,$dbname,$sql);
 }
 
 ?>
@@ -20,7 +24,8 @@ if($method === 'GET'){
 </head>
 <body>
     <h1>編集</h1>
-    <?php foreach($data as $val): ?><!--配列の配置 -->
+    <?php 
+    foreach((array)$data as $val): ?><!--配列の配置 -->
         <form method="post">
         タスク: <input type="text" name = "TodoName" value = "<?php echo $val['TodoName']?>"><br>
         詳細: <textarea name="comment"><?php echo $val['comment']?></textarea><br>
