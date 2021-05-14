@@ -1,8 +1,8 @@
 <?php
 require_once('func.php');
 $data = array();//配列の入ったデータの取得
-$sql = "";
-$data = alllist($host,$username,$password,$dbname,$sql);//配列の引き渡し
+$dbh = "";
+$data = alllist($host,$username,$password,$dbname,$dbh);//配列の引き渡し
 // var_dump($data)
 ?>
 <!DOCTYPE html>

@@ -4,7 +4,7 @@ $host = 'localhost';
 $username = 'root';
 $password = '';
 $dbname = 'todo';
-function alllist($host,$username,$password,$dbname,$sql){
+function alllist($host,$username,$password,$dbname,$dbh){
 
     //DBへ接続
     $db = mysqli_connect($host,$username,$password,$dbname);
@@ -32,7 +32,7 @@ function alllist($host,$username,$password,$dbname,$sql){
 }
 
 //alllist関数の複製
-function setDB($host,$username,$password,$dbname,$sql){
+function setDB($host,$username,$password,$dbname,$dbh){
 
     //DBへ接続
     $db = mysqli_connect($host,$username,$password,$dbname);
@@ -41,7 +41,7 @@ function setDB($host,$username,$password,$dbname,$sql){
     mysqli_set_charset($db,"utf8");
 
     //クエリの送信
-    $query = $sql;//上からデータの取得
+    $query = $dbh;//上からデータの取得
     $result = mysqli_query($db , $query);
 
     if($result){
@@ -58,7 +58,7 @@ function setDB($host,$username,$password,$dbname,$sql){
 }
 
 //alllist関数の複製
-function updDB($host,$username,$password,$dbname,$sql){
+function updDB($host,$username,$password,$dbname,$dbh){
 
     //DBへ接続
     $db = mysqli_connect($host,$username,$password,$dbname);
@@ -67,7 +67,7 @@ function updDB($host,$username,$password,$dbname,$sql){
     mysqli_set_charset($db,"utf8");
 
     //クエリの送信
-    $query = $sql;
+    $query = $dbh;
     $result = mysqli_query($db , $query);
 
     if($result){
