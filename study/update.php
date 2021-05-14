@@ -6,7 +6,7 @@ if($method === 'GET'){
     //編集する情報の取得
     $id = filter_input(INPUT_GET,'id');//idデータの読み込み
     $dbh ="SELECT * FROM `task` WHERE `id` = '$id'";
-    $data = updDB($host,$username,$password,$dbname,$dbh);//配列の取得
+    $data = updateTodo($host,$username,$password,$dbname,$dbh);//配列の取得
 }elseif($method === 'POST'){
     //編集内容の登録
     $id = filter_input(INPUT_GET,'id');//データの読み込み

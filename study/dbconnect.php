@@ -58,7 +58,7 @@ function addTodo($host,$username,$password,$dbname,$dbh){
 }
 
 //alllist関数の複製
-function updDB($host,$username,$password,$dbname,$dbh){
+function updateTodo($host,$username,$password,$dbname,$dbh){
 
     //DBへ接続
     $db = mysqli_connect($host,$username,$password,$dbname);
