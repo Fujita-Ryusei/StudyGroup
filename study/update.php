@@ -1,5 +1,5 @@
 <?php
-require_once('func.php');
+require_once('dbconnect.php');
 $method = $_SERVER["REQUEST_METHOD"];//POST/GET通信の判定
 
 if($method === 'GET'){
@@ -13,7 +13,7 @@ if($method === 'GET'){
     $TodoName = filter_input(INPUT_POST,'TodoName');
     $comment = filter_input(INPUT_POST,'comment');
     $dbh = "UPDATE `task` SET `TodoName`= '$TodoName',`comment`= '$comment' WHERE `id` = $id ";
-    setDB($host,$username,$password,$dbname,$dbh);
+    addTodo($host,$username,$password,$dbname,$dbh);
 }
 
 ?>

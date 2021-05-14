@@ -1,13 +1,12 @@
 <?php
-    require_once('func.php');
+    require_once('dbconnect.php');
     $method = $_SERVER["REQUEST_METHOD"];//POST/GET通信の判定
     $data = array();
     if($method == 'POST') {
         $TodoName = filter_input(INPUT_POST,'TodoName');//入力されたデータの読み込み
         $comment = filter_input(INPUT_POST,'comment');
-        $stmt = $dbh ->prepare("INSERT INTO `task`(`TodoName`, `comment`)VALUES ('?','?')");//INSERTクエリの実行(値で渡している。)
-        $stmt->bind_param('$TodoName','$comment');//ＩＮＳＥＲＴクエリの値と変数を紐づける
-        setDB($host,$username,$password,$dbname,$dbh);//データの読み込み
+        $dbh = "INSERT INTO `task`(`TodoName`, `comment`) VALUES ('$TodoName','$comment')";//INSERTクエリの実行
+        addTodo($host,$username,$password,$dbname,$dbh);//データの読み込み
     }
 ?>
 <!DOCTYPE html>

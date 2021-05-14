@@ -1,10 +1,10 @@
 <?php
-require_once('func.php');
+require_once('dbconnect.php');
 $id = filter_input(INPUT_GET,'id');
 if($id){
 //deleteクエリの実行
     $dbh = "DELETE FROM `task` WHERE `id` = '$id'";
-    setDB($host,$username,$password,$dbname,$dbh);//データの読み込み
+    addTodo($host,$username,$password,$dbname,$dbh);//データの読み込み
 }
 
 ?>
