@@ -2,7 +2,7 @@
 require_once('dbconnect.php');
 $data = array();//配列の入ったデータの取得
 $dbh = "";
-$data = alllist($host,$username,$password,$dbname,$dbh);//配列の引き渡し
+$data = selectTodo($host,$username,$password,$dbname,$dbh);//配列の引き渡し
 // var_dump($data)
 ?>
 <!DOCTYPE html>

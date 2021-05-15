@@ -1,6 +1,6 @@
 <?php
 require_once('dbconnect.php');
-$id = filter_input(INPUT_GET,'id');
+$id = $_GET["id"];
 if($id){
 //deleteクエリの実行
     $dbh = "DELETE FROM `task` WHERE `id` = '$id'";

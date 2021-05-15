@@ -3,8 +3,8 @@
     $method = $_SERVER["REQUEST_METHOD"];//POST/GET通信の判定
     $data = array();
     if($method == 'POST') {
-        $TodoName = filter_input(INPUT_POST,'TodoName');//入力されたデータの読み込み
-        $comment = filter_input(INPUT_POST,'comment');
+        $TodoName = $_POST["TodoName"];;//入力されたデータの読み込み
+        $comment = $_POST["comment"];
         $dbh = "INSERT INTO `task`(`TodoName`, `comment`) VALUES ('$TodoName','$comment')";//INSERTクエリの実行
         addTodo($host,$username,$password,$dbname,$dbh);//データの読み込み
     }

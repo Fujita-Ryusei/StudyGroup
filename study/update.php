@@ -1,17 +1,17 @@
 <?php
 require_once('dbconnect.php');
-$method = $_SERVER["REQUEST_METHOD"];//POST/GET通信の判定
-
-if($method === 'GET'){
+$method = $_SERVER["REQUEST_METHOD"];
+if ($_SERVER["REQUEST_METHOD"] === "GET")//POST/GET通信の判定
+{
     //編集する情報の取得
-    $id = filter_input(INPUT_GET,'id');//idデータの読み込み
+    $id = $_GET["id"];//idデータの読み込み
     $dbh ="SELECT * FROM `task` WHERE `id` = '$id'";
     $data = updateTodo($host,$username,$password,$dbname,$dbh);//配列の取得
 }elseif($method === 'POST'){
     //編集内容の登録
-    $id = filter_input(INPUT_GET,'id');//データの読み込み
-    $TodoName = filter_input(INPUT_POST,'TodoName');
-    $comment = filter_input(INPUT_POST,'comment');
+    $id = $_GET["id"];//データの読み込み
+    $TodoName = $_POST["TodoName"];
+    $comment = $_POST["comment"];
     $dbh = "UPDATE `task` SET `TodoName`= '$TodoName',`comment`= '$comment' WHERE `id` = $id ";
     addTodo($host,$username,$password,$dbname,$dbh);
 }

@@ -4,7 +4,7 @@ $host = 'localhost';
 $username = 'root';
 $password = '';
 $dbname = 'todo';
-function alllist($host,$username,$password,$dbname,$dbh){
+function selectTodo($host,$username,$password,$dbname,$dbh){
 
     //DBへ接続
     $db = mysqli_connect($host,$username,$password,$dbname);
@@ -31,7 +31,7 @@ function alllist($host,$username,$password,$dbname,$dbh){
     return $data;//配列を帰す
 }
 
-//alllist関数の複製
+//selectTodo関数の複製
 function addTodo($host,$username,$password,$dbname,$dbh){
 
     //DBへ接続
@@ -57,7 +57,7 @@ function addTodo($host,$username,$password,$dbname,$dbh){
     //dataの取得が必要ないのでreturnは消す。
 }
 
-//alllist関数の複製
+//selectTodo関数の複製
 function updateTodo($host,$username,$password,$dbname,$dbh){
 
     //DBへ接続
